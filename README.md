@@ -1,35 +1,55 @@
 # Project Under 100
 
-A private, installable 12-week fitness companion for the programme: **107 kg → under 100 kg → 90 kg**. It has no account, no analytics, and no server: progress is saved locally on the device.
+A private, installable 12-week fitness companion designed around one sustainable objective: **107 kg → under 100 kg → 90 kg**.
 
-## Included
+This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sign-in, tracking pixels or server. Your check-ins, habits and settings stay in the browser on the device you use.
 
-- Responsive dashboard, scorecard, weight check-ins, weight chart, streaks, and workout history.
-- Four guided sessions: HIIT, Strength, Core & Mobility, and Full Body.
-- Automatic 12-week timing progression: 40/20, 45/15, then 50/10.
-- Spoken browser coaching, pause, skip, and workout completion tracking.
-- PWA manifest, service worker caching, and app icons for offline use/installing.
+## What it includes
 
-## Publish free with GitHub Pages
+- A premium, responsive daily dashboard with the programme week, weight journey, streak and habit scorecard.
+- Four genuinely guided 10-minute workouts: HIIT, Strength, Core and Full Body.
+- Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
+- Voice coaching, circular countdown, pause/resume, skip and next-exercise preview.
+- Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
+- 12-week plan, weekly review, achievement milestones and motivational coaching messages.
+- Theme, voice, reminder preference, export and reset controls.
+- Manifest, app icon, service worker and offline application shell.
 
-1. Create a GitHub repository named `project-under-100` (public is simplest).
-2. Upload the **contents** of this folder to the repository root — `index.html` must be at the top level, not inside another folder.
-3. In the repository open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, then select `main` and **/(root)**. Save.
-5. After GitHub finishes publishing, open the URL it shows, usually `https://YOUR-USERNAME.github.io/project-under-100/`.
+## Project structure
 
-## Add to iPhone Home Screen
+```text
+├── assets/             # Reserved for future imagery/audio
+├── css/app.css         # Mobile-first visual system
+├── data/programme.js   # Programme, habits and achievements
+├── icons/              # PWA and Apple Home Screen icons
+├── js/
+│   ├── app.js          # UI state and feature orchestration
+│   ├── storage.js      # Local data persistence/export
+│   └── workout-player.js
+├── index.html
+├── manifest.json
+└── sw.js
+```
 
-1. Open the published URL in **Safari** (not Chrome).
+## Deploy to GitHub Pages
+
+The site is ready for the repository root. In GitHub:
+
+1. Open **Settings → Pages** in `moomoo-ha/project-under-100`.
+2. Under **Build and deployment**, select **Deploy from a branch**.
+3. Select the `main` branch and **/(root)** folder, then save.
+4. GitHub will publish to `https://moomoo-ha.github.io/project-under-100/` within a minute or two.
+
+After a deployment, open the link once while online. This allows the service worker to cache the application for later offline use.
+
+## Install on iPhone
+
+1. Open the published URL in **Safari**.
 2. Tap **Share**.
-3. Choose **Add to Home Screen**, then **Add**.
+3. Select **Add to Home Screen** and tap **Add**.
 
-The first visit needs an internet connection so Safari can cache the app. After that it works offline. Safari does not show the browser install button; **Add to Home Screen** is the normal install route on iPhone.
+Safari will launch it as a standalone app from your Home Screen. iOS does not show the browser install button; this is the normal PWA install route.
 
-## Important privacy note
+## Data and privacy
 
-All check-ins and workout records are stored only in the browser's local storage. They do not sync between devices and can be lost if Safari website data is cleared. There is no medical advice or health-data integration in this version.
-
-## Local testing
-
-Opening `index.html` directly will show the UI, but service workers need a web server. GitHub Pages provides this automatically; any simple local static server works for testing offline behaviour.
+Data is stored with `localStorage` only. It does not sync across devices and clearing Safari website data will erase it. Use **Settings → Export data** periodically if you want a personal backup. This app is a fitness companion and not medical advice.
