@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101c19" />
+    <meta name="description" content="A private 12-week fitness coach for Project Under 100." />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/icon-180.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Project Under 100</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#dashboard" aria-label="Project Under 100 home"><span class="brand-mark">↑</span><span>PROJECT <b>UNDER 100</b></span></a>
+        <button id="install-button" class="icon-button hidden" title="Install app" aria-label="Install app">↓</button>
+      </header>
+
+      <main>
+        <section id="dashboard" class="page active" aria-labelledby="dashboard-title">
+          <div class="eyebrow">YOUR 12-WEEK MISSION</div>
+          <h1 id="dashboard-title">Make every session count.</h1>
+          <p class="lede">107 kg <span>→</span> <strong>under 100 kg</strong> <span>→</span> 90 kg</p>
+
+          <section class="hero-card card">
+            <div class="week-label" id="week-label">WEEK 1 OF 12</div>
+            <div class="progress-track"><i id="programme-progress"></i></div>
+            <div class="hero-stats">
+              <div><small>Starting</small><strong>107.0 <em>kg</em></strong></div>
+              <div><small>Current</small><strong id="current-weight">— <em>kg</em></strong></div>
+              <div><small>Target</small><strong id="week-target">106.2 <em>kg</em></strong></div>
+            </div>
+          </section>
+
+          <section class="today-heading"><div><div class="eyebrow">TODAY'S SESSION</div><h2 id="today-workout-name">HIIT</h2><p id="today-workout-detail">10 minutes · 40 sec work / 20 sec recover</p></div><span class="workout-orb">⚡</span></section>
+          <button id="start-todays-workout" class="primary-button">START SESSION <span>→</span></button>
+
+          <div class="stat-grid">
+            <article class="stat-card card"><span>🔥</span><small>Current streak</small><strong id="streak-value">0 days</strong></article>
+            <article class="stat-card card"><span>✓</span><small>Sessions done</small><strong id="sessions-value">0</strong></article>
+            <article class="stat-card card"><span>⌁</span><small>Lost so far</small><strong id="lost-value">0.0 kg</strong></article>
+          </div>
+
+          <section class="card habits-card"><div class="section-title"><div><div class="eyebrow">DAILY SCORECARD</div><h2>Small wins, repeated.</h2></div><strong id="habit-score">0 / 6</strong></div><div id="habits-list" class="habits-list"></div></section>
+        </section>
+
+        <section id="workout" class="page" aria-labelledby="workout-page-title">
+          <div class="workout-top"><button class="text-button" data-go="dashboard">← Exit session</button><button id="sound-button" class="text-button" aria-pressed="true">Sound: on</button></div>
+          <div id="workout-setup">
+            <div class="eyebrow">GUIDED WORKOUT</div><h1 id="workout-page-title">Choose your session.</h1>
+            <div id="workout-picker" class="workout-picker"></div>
+            <button id="begin-workout" class="primary-button">BEGIN WORKOUT <span>→</span></button>
+            <p class="small-note">Your current week automatically sets the work and recovery intervals.</p>
+          </div>
+          <div id="timer-view" class="hidden">
+            <div class="timer-meta"><span id="timer-round">ROUND 1 OF 2</span><span id="timer-stage">WORK</span></div>
+            <div class="timer-ring" id="timer-ring"><div><strong id="timer-value">00:40</strong><small id="timer-subtitle">Get ready</small></div></div>
+            <div class="timer-copy"><div class="eyebrow" id="exercise-label">EXERCISE 1 OF 5</div><h1 id="timer-exercise">Squat + knee to elbow</h1><p id="timer-next">Next: Press-ups</p></div>
+            <div class="timer-actions"><button id="pause-button" class="secondary-button">PAUSE</button><button id="skip-button" class="text-button">Skip →</button></div>
+          </div>
+          <div id="complete-view" class="complete-view hidden"><div class="complete-mark">✓</div><div class="eyebrow">SESSION COMPLETE</div><h1>That counts.</h1><p>Consistency beats perfection. Your workout has been saved.</p><button class="primary-button" data-go="dashboard">BACK TO DASHBOARD <span>→</span></button></div>
+        </section>
+
+        <section id="progress" class="page" aria-labelledby="progress-title">
+          <div class="eyebrow">YOUR DATA</div><h1 id="progress-title">Progress, not perfection.</h1>
+          <section class="card chart-card"><div class="section-title"><div><h2>Weight journey</h2><p>107 kg → 99.9 kg first milestone</p></div><strong id="latest-weight">— kg</strong></div><div id="weight-chart" class="weight-chart" aria-label="Weight trend chart"></div></section>
+          <section class="card form-card"><div class="section-title"><div><div class="eyebrow">WEEKLY CHECK-IN</div><h2>Log your progress</h2></div></div><form id="weight-form"><label>Date<input id="weight-date" type="date" required /></label><label>Weight (kg)<input id="weight-input" type="number" min="40" max="250" step="0.1" placeholder="e.g. 105.8" required /></label><label>Waist (cm)<input id="waist-input" type="number" min="40" max="200" step="0.1" placeholder="Optional" /></label><button class="primary-button" type="submit">SAVE CHECK-IN <span>→</span></button></form></section>
+          <section class="card history-card"><h2>Recent check-ins</h2><div id="weight-history"></div></section>
+        </section>
+
+        <section id="more" class="page" aria-labelledby="more-title"><div class="eyebrow">YOUR PROGRAMME</div><h1 id="more-title">Built to be sustainable.</h1><section class="card"><h2>Weekly rhythm</h2><div class="schedule"><p><b>Mon</b> HIIT</p><p><b>Tue</b> Strength</p><p><b>Wed</b> Walk or recovery</p><p><b>Thu</b> HIIT</p><p><b>Fri</b> Core & mobility</p><p><b>Sat</b> Full body</p><p><b>Sun</b> Rest or family walk</p></div></section><section class="card"><h2>Progression</h2><p>Weeks 1–4: 40 / 20 &nbsp;·&nbsp; Weeks 5–8: 45 / 15 &nbsp;·&nbsp; Weeks 9–12: 50 / 10</p></section><section class="card"><h2>Data & privacy</h2><p>Everything stays on this device in browser storage. Clearing browser data will remove it.</p><button id="reset-button" class="danger-button">Reset app data</button></section></section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Main navigation"><button class="nav-item active" data-go="dashboard"><span>⌂</span>Today</button><button class="nav-item" data-go="workout"><span>◉</span>Workout</button><button class="nav-item" data-go="progress"><span>⌁</span>Progress</button><button class="nav-item" data-go="more"><span>•••</span>More</button></nav>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
