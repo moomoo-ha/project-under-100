@@ -13,6 +13,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sig
 - Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
 - Theme, voice, reminder preference, export and reset controls.
+- Bluetooth-friendly voice testing: connect a speaker in your phone’s system settings and coaching prompts use that active audio route.
 - Manifest, app icon, service worker and offline application shell.
 
 ## Project structure
@@ -49,6 +50,14 @@ After a deployment, open the link once while online. This allows the service wor
 3. Select **Add to Home Screen** and tap **Add**.
 
 Safari will launch it as a standalone app from your Home Screen. iOS does not show the browser install button; this is the normal PWA install route.
+
+## Use with a Bluetooth speaker
+
+1. Connect the speaker in **iPhone Settings → Bluetooth** (or your Android device’s Bluetooth settings).
+2. Start any other audio briefly to confirm the phone is routing sound to that speaker.
+3. In Project Under 100, open **Settings → Test voice on speaker**.
+
+Browsers are not allowed to pair or select Bluetooth audio devices themselves. The app uses the phone’s active audio route, so once the speaker is selected at system level, spoken workout prompts follow it automatically.
 
 ## Data and privacy
 
