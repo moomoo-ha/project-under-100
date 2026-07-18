@@ -11,6 +11,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sig
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
 - Voice coaching, circular countdown, pause/resume, skip and next-exercise preview.
 - Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
+- Private on-device progress photos and JSON backup import/export for the rest of your programme data.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
 - Theme, voice, reminder preference, export and reset controls.
 - Bluetooth-friendly voice testing: connect a speaker in your phone’s system settings and coaching prompts use that active audio route.
@@ -61,4 +62,4 @@ Browsers are not allowed to pair or select Bluetooth audio devices themselves. T
 
 ## Data and privacy
 
-Data is stored with `localStorage` only. It does not sync across devices and clearing Safari website data will erase it. Use **Settings → Export data** periodically if you want a personal backup. This app is a fitness companion and not medical advice.
+Programme data is stored with `localStorage`; progress photos are stored separately in the browser’s on-device media storage. Neither syncs across devices or uploads anywhere. Clearing Safari website data will erase both. Use **Settings → Export data** periodically; backups deliberately exclude photos, while imports restore programme data only. This app is a fitness companion and not medical advice.

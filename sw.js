@@ -1,5 +1,5 @@
-const CACHE = 'project-under-100-v5';
-const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
+const CACHE = 'project-under-100-v6';
+const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './css/photos.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/photos.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
 
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

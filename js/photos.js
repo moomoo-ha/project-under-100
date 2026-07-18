@@ -1,0 +1,10 @@
+const DB_NAME = 'project-under-100-media';
+const STORE = 'photos';
+
+function database() { return new Promise((resolve, reject) => { const request = indexedDB.open(DB_NAME, 1); request.onupgradeneeded = () => request.result.createObjectStore(STORE, { keyPath: 'id' }); request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); }); }
+function request(store, method, value) { return new Promise(async (resolve, reject) => { try { const db = await database(); const transaction = db.transaction(STORE, 'readwrite'); const result = store(transaction.objectStore(STORE), method, value); result.onsuccess = () => resolve(result.result); result.onerror = () => reject(result.error); } catch (error) { reject(error); } }); }
+async function compress(file) { const source = 'createImageBitmap' in window ? await createImageBitmap(file) : await new Promise((resolve, reject) => { const image = new Image(); image.onload = () => resolve(image); image.onerror = reject; image.src = URL.createObjectURL(file); }); const scale = Math.min(1, 1200 / Math.max(source.width, source.height)); const canvas = document.createElement('canvas'); canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale); canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height); return new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', .82)); }
+export async function savePhoto(file, date) { if (!file?.type.startsWith('image/')) throw new Error('Choose an image file.'); const blob = await compress(file); if (!blob) throw new Error('The image could not be prepared.'); const id = crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`; await request((store, method, value) => store[method](value), 'put', { id, blob }); return { id, date, createdAt: new Date().toISOString() }; }
+export const getPhoto = id => request((store, method, value) => store[method](value), 'get', id);
+export const removePhoto = id => request((store, method) => store[method](id), 'delete');
+export const clearPhotos = () => request((store, method) => store[method](), 'clear');
