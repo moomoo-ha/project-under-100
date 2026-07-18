@@ -45,6 +45,19 @@ The site is ready for the repository root. In GitHub:
 
 After a deployment, open the link once while online. This allows the service worker to cache the application for later offline use.
 
+## Enable private cloud sync
+
+Cloud sync uses Supabase email authentication and a per-user row protected by Row Level Security. Progress photos deliberately remain only on the device where they were added.
+
+1. In the Supabase project, open **SQL Editor → New query**.
+2. Paste and run the complete contents of [`supabase-schema.sql`](supabase-schema.sql).
+3. Open **Authentication → URL Configuration** and add the published app URL as an allowed redirect URL:
+   `https://moomoo-ha.github.io/project-under-100/`
+4. Push and deploy the current app, then open **Settings → Cloud backup**.
+5. Enter your email address, use the sign-in link Supabase sends, then select **Back up now**.
+
+The project’s publishable key is included in the client application by design; it is not a secret. The SQL policies are what enforce that an authenticated user can read and write only their own row. Never add a Supabase secret or `service_role` key to this repository. [Supabase security guidance](https://supabase.com/docs/guides/database/secure-data)
+
 ## Install on iPhone
 
 1. Open the published URL in **Safari**.
