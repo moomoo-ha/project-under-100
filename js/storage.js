@@ -1,6 +1,6 @@
 const KEY = 'project-under-100-v4';
 const today = () => new Date().toISOString().slice(0, 10);
-const initialState = () => ({ version: 6, startedAt: today(), habits: {}, dailyLogs: {}, reviews: {}, photos: [], sessions: [], checkins: [], settings: { voice: true, dark: true, reminder: '07:00' } });
+const initialState = () => ({ version: 7, startedAt: today(), habits: {}, dailyLogs: {}, reviews: {}, photos: [], sessions: [], checkins: [], settings: { voice: true, dark: true, remindersEnabled: true, reminder: '07:00', lastReminderDate: null } });
 export function hydrateState(saved) { if (!saved || typeof saved !== 'object' || Array.isArray(saved)) throw new Error('That backup is not a Project Under 100 data file.'); return { ...initialState(), ...saved, settings: { ...initialState().settings, ...saved.settings }, dailyLogs: saved.dailyLogs || {}, reviews: saved.reviews || {}, photos: saved.photos || [] }; }
 export function loadState() { try { return hydrateState(JSON.parse(localStorage.getItem(KEY))); } catch { return initialState(); } }
 export function saveState(state) { localStorage.setItem(KEY, JSON.stringify(state)); }

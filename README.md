@@ -14,6 +14,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sig
 - Private on-device progress photos and JSON backup import/export for the rest of your programme data.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
 - Theme, voice, reminder preference, export and reset controls.
+- In-app daily reminder prompt, with optional browser alerts when the PWA is open and the device supports them.
 - Bluetooth-friendly voice testing: connect a speaker in your phone’s system settings and coaching prompts use that active audio route.
 - Manifest, app icon, service worker and offline application shell.
 
@@ -59,6 +60,10 @@ Safari will launch it as a standalone app from your Home Screen. iOS does not sh
 3. In Project Under 100, open **Settings → Test voice on speaker**.
 
 Browsers are not allowed to pair or select Bluetooth audio devices themselves. The app uses the phone’s active audio route, so once the speaker is selected at system level, spoken workout prompts follow it automatically.
+
+## Reminder behaviour
+
+GitHub Pages provides no background server, so this app cannot guarantee a notification while fully closed on iPhone. It does show a daily check-in prompt at your selected time while open, and again when you next open the app after that time. Where supported, you can opt into a browser alert from **Settings**; it is an additional prompt while the app is active, not a replacement for native push notifications.
 
 ## Data and privacy
 
