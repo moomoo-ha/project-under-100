@@ -2,7 +2,7 @@
 
 A private, installable 12-week fitness companion designed around one sustainable objective: **your starting point → first milestone → long-term goal**.
 
-This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sign-in, tracking pixels or server. Your check-ins, habits and settings stay in the browser on the device you use.
+This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tracking pixels or server. Your programme data stays in the browser unless you explicitly opt in to private cloud backup with your own email sign-in.
 
 ## What it includes
 
@@ -15,6 +15,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sig
 - Private on-device progress photos and JSON backup import/export for the rest of your programme data.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
 - Theme, voice, reminder preference, export and reset controls.
+- Private cloud backup with last-backup visibility and an optional automatic-backup setting.
 - In-app daily reminder prompt, with optional browser alerts when the PWA is open and the device supports them.
 - Bluetooth-friendly voice testing: connect a speaker in your phone’s system settings and coaching prompts use that active audio route.
 - Manifest, app icon, service worker and offline application shell.
@@ -62,6 +63,7 @@ Cloud sync uses Supabase email authentication and a per-user row protected by Ro
    `https://moomoo-ha.github.io/project-under-100/`
 4. Push and deploy the current app, then open **Settings → Cloud backup**.
 5. Enter your email address, use the sign-in link Supabase sends, then select **Back up now**.
+6. Once you have verified the first backup, you can enable **Automatic backup**. The app waits a few seconds after a meaningful saved change, then backs up your programme. It never uploads progress photos. If another device has a newer backup, automatic backup pauses rather than overwriting it; restore that copy or explicitly confirm a manual replacement.
 
 The project’s publishable key is included in the client application by design; it is not a secret. The SQL policies are what enforce that an authenticated user can read and write only their own row. Never add a Supabase secret or `service_role` key to this repository. [Supabase security guidance](https://supabase.com/docs/guides/database/secure-data)
 
