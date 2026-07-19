@@ -15,6 +15,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 - Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
 - Private on-device progress photos and JSON backup import/export for the rest of your programme data.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
+- Weekly coaching insight that turns your current target, completed sessions, strong habit days and latest check-in into one practical next action.
 - Theme, voice, reminder preference, export and reset controls.
 - Private cloud backup with last-backup visibility and an optional automatic-backup setting.
 - In-app daily reminder prompt, with optional browser alerts when the PWA is open and the device supports them.
