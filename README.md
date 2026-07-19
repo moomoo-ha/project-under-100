@@ -1,12 +1,13 @@
 # Project Under 100
 
-A private, installable 12-week fitness companion designed around one sustainable objective: **107 kg → under 100 kg → 90 kg**.
+A private, installable 12-week fitness companion designed around one sustainable objective: **your starting point → first milestone → long-term goal**.
 
 This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sign-in, tracking pixels or server. Your check-ins, habits and settings stay in the browser on the device you use.
 
 ## What it includes
 
 - A premium, responsive daily dashboard with the programme week, weight journey, streak and habit scorecard.
+- A first-run personal programme setup for weight goals, start date, calorie/protein/water/steps/sleep targets and your own reason for doing this.
 - Four genuinely guided 10-minute workouts: HIIT, Strength, Core and Full Body.
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
 - Voice coaching, circular countdown, pause/resume, skip and next-exercise preview.
@@ -33,6 +34,12 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no sig
 ├── manifest.json
 └── sw.js
 ```
+
+## Personalise your programme
+
+On first opening the app, complete the short setup. It asks for your starting weight, first milestone, long-term goal, height, programme start date and daily habit targets. The dashboard, weekly target curve, BMI, scorecard and daily logging then use those values. You can change them at any time from **Settings → Edit programme**.
+
+Existing users will see this setup once after updating; existing workouts, check-ins, reviews and photos remain intact.
 
 ## Deploy to GitHub Pages
 

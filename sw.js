@@ -1,5 +1,5 @@
-const CACHE = 'project-under-100-v9';
-const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './css/photos.css', './css/guidance.css', './css/reminders.css', './css/cloud.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/photos.js', './js/cloud.js', './js/cloud-config.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
+const CACHE = 'project-under-100-v10';
+const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './css/photos.css', './css/guidance.css', './css/reminders.css', './css/cloud.css', './css/profile.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/photos.js', './js/cloud.js', './js/cloud-config.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
 
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
