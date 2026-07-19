@@ -8,6 +8,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 
 - A premium, responsive daily dashboard with the programme week, weight journey, streak and habit scorecard.
 - A first-run personal programme setup for weight goals, start date, calorie/protein/water/steps/sleep targets and your own reason for doing this.
+- An editable weekly training schedule: choose a session or recovery for each day, with the home screen and calendar following your plan.
 - Four genuinely guided 10-minute workouts: HIIT, Strength, Core and Full Body.
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
 - Voice coaching, circular countdown, pause/resume, skip and next-exercise preview.
@@ -41,6 +42,10 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 On first opening the app, complete the short setup. It asks for your starting weight, first milestone, long-term goal, height, programme start date and daily habit targets. The dashboard, weekly target curve, BMI, scorecard and daily logging then use those values. You can change them at any time from **Settings → Edit programme**.
 
 Existing users will see this setup once after updating; existing workouts, check-ins, reviews and photos remain intact.
+
+## Set your training days
+
+Open **Settings → Edit training days** to choose HIIT, Strength, Core, Full Body or Recovery for each day. The app supports up to five training days each week, preserving at least two recovery days. On a recovery day, the home screen offers a gentle rest prompt and lets you choose an optional session without changing your plan.
 
 ## Deploy to GitHub Pages
 

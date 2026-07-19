@@ -1,0 +1,1 @@
+select:focus-visible,textarea:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
