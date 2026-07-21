@@ -11,7 +11,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 - An editable weekly training schedule: choose a session or recovery for each day, with the home screen and calendar following your plan.
 - Four genuinely guided 10-minute workouts: HIIT, Strength, Core and Full Body.
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
-- Voice coaching, circular countdown, pause/resume, skip and next-exercise preview.
+- Voice coaching, a real three-second preparation countdown, circular timer, pause/resume, skip and next-exercise preview.
 - Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
 - Private on-device progress photos and JSON backup import/export for the rest of your programme data.
 - 12-week plan, weekly review, achievement milestones and motivational coaching messages.
