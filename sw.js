@@ -1,7 +1,8 @@
-const CACHE = 'project-under-100-v16';
-const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './css/photos.css', './css/guidance.css', './css/reminders.css', './css/cloud.css', './css/profile.css', './css/schedule.css', './css/accessibility.css', './css/insights.css', './css/personalisation.css', './css/history.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/insights.js', './js/photos.js', './js/cloud.js', './js/cloud-config.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
+const CACHE = 'project-under-100-v17';
+const APP_SHELL = ['./', './index.html', './manifest.json', './css/app.css', './css/tracking.css', './css/photos.css', './css/guidance.css', './css/reminders.css', './css/cloud.css', './css/profile.css', './css/schedule.css', './css/accessibility.css', './css/insights.css', './css/personalisation.css', './css/history.css', './css/pwa.css', './js/app.js', './js/storage.js', './js/tracking.js', './js/insights.js', './js/photos.js', './js/cloud.js', './js/cloud-config.js', './js/workout-player.js', './data/programme.js', './icons/icon-180.svg', './icons/icon-192.svg', './icons/icon-512.svg'];
 
-self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())));
+self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(APP_SHELL))));
+self.addEventListener('message', event => { if (event.data?.type === 'SKIP_WAITING') self.skipWaiting(); });
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;

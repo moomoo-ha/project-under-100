@@ -22,7 +22,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 - Private cloud backup with last-backup visibility and an optional automatic-backup setting.
 - In-app daily reminder prompt, with optional browser alerts when the PWA is open and the device supports them.
 - Bluetooth-friendly voice testing: connect a speaker in your phone’s system settings and coaching prompts use that active audio route.
-- Manifest, app icon, service worker and offline application shell.
+- Manifest, app icon, service worker and offline application shell, with a clear offline indicator and a safe in-app update prompt.
 
 ## Project structure
 
@@ -60,6 +60,8 @@ The site is ready for the repository root. In GitHub:
 4. GitHub will publish to `https://moomoo-ha.github.io/project-under-100/` within a minute or two.
 
 After a deployment, open the link once while online. This allows the service worker to cache the application for later offline use.
+
+When a newer version is available, the app shows an **Update** prompt rather than interrupting an active session. Choose **Update** when you are ready; the app refreshes into the latest version while keeping your programme data on the device.
 
 ## Enable private cloud sync
 

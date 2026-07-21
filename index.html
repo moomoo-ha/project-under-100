@@ -19,10 +19,13 @@
   <link rel="stylesheet" href="css/insights.css">
   <link rel="stylesheet" href="css/personalisation.css">
   <link rel="stylesheet" href="css/history.css">
+  <link rel="stylesheet" href="css/pwa.css">
   <title>Project Under 100</title>
 </head>
 <body>
   <div class="app-background"></div>
+  <div id="connection-banner" class="connection-banner is-hidden" role="status">You’re offline. Your saved app and existing data still work.</div>
+  <div id="update-banner" class="update-banner is-hidden" role="status" aria-live="polite"><span>New app version ready.</span><button id="apply-update" type="button">UPDATE</button><button id="dismiss-update" type="button" aria-label="Dismiss update message">×</button></div>
   <div class="app-shell">
     <header class="app-header">
       <a class="brand" href="#home" aria-label="Project Under 100 home"><span class="brand-icon">↑</span><span>PROJECT <b>UNDER 100</b></span></a>
