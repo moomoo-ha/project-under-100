@@ -38,7 +38,8 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 │   ├── app.js          # UI state and feature orchestration
 │   ├── storage.js      # Local data persistence/export
 │   ├── workout-player.js
-│   └── workout-view.js  # Workout presentation and interaction rendering
+│   ├── workout-view.js  # Workout presentation and interaction rendering
+│   └── calendar-view.js # Programme calendar presentation and interaction rendering
 ├── index.html
 ├── manifest.json
 └── sw.js
