@@ -13,6 +13,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
 - Voice coaching, a real three-second preparation countdown, circular timer, pause/resume, skip and next-exercise preview.
 - Workout personalisation: an optional low-impact movement plan, on-the-fly exercise swaps, and optional warm-up/cool-down guidance.
+- A guided **Mobility Reset** for recovery days: one gentle 10-minute round with breathing, hip, spine and hamstring mobility, plus supported alternatives.
 - Workout history with recent sessions, weekly count, favourite workout and a one-tap repeat action.
 - Weight and waist check-ins, BMI, weekly average, Chart.js weight graph and recent history.
 - Private on-device progress photos and JSON backup import/export for the rest of your programme data.
