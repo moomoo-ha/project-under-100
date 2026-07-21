@@ -12,6 +12,20 @@ export const WORKOUTS = {
   Core: { icon: '◎', days: [5], exercises: ['Dead bugs', 'Bicycle crunches', 'Plank', 'Slow mountain climbers', 'Side plank'] },
   'Full Body': { icon: '🔥', days: [6], exercises: ['Fast squats', 'Press-ups', 'Alternating lunges', 'Mountain climbers', 'Squat thrusts'] }
 };
+export const LOW_IMPACT_SWAPS = {
+  'Press-ups': 'Incline press-ups', 'Reverse lunge + knee drive': 'Supported reverse lunges', 'Mountain climbers': 'Slow mountain climbers', 'Squat thrusts': 'Step-back squat thrusts',
+  'Alternating reverse lunges': 'Supported reverse lunges', 'Plank shoulder taps': 'Elevated plank shoulder taps', 'Fast squats': 'Steady squats', 'Alternating lunges': 'Supported reverse lunges'
+};
+export const EXERCISE_ALTERNATIVES = {
+  'Squat + knee to elbow': ['Squat + knee to elbow', 'Supported squat + knee drive', 'Fast marching knee drives'],
+  'Press-ups': ['Press-ups', 'Incline press-ups', 'Wall press-ups'], 'Incline press-ups': ['Press-ups', 'Incline press-ups', 'Wall press-ups'], 'Wall press-ups': ['Press-ups', 'Incline press-ups', 'Wall press-ups'],
+  'Reverse lunge + knee drive': ['Reverse lunge + knee drive', 'Supported reverse lunges', 'Fast marching knee drives'], 'Alternating reverse lunges': ['Alternating reverse lunges', 'Supported reverse lunges', 'Sit-to-stand squats'], 'Supported reverse lunges': ['Reverse lunge + knee drive', 'Supported reverse lunges', 'Sit-to-stand squats'],
+  'Mountain climbers': ['Mountain climbers', 'Slow mountain climbers', 'Fast marching knee drives'], 'Slow mountain climbers': ['Mountain climbers', 'Slow mountain climbers', 'Fast marching knee drives'],
+  'Squat thrusts': ['Squat thrusts', 'Step-back squat thrusts', 'Fast marching knee drives'], 'Step-back squat thrusts': ['Squat thrusts', 'Step-back squat thrusts', 'Fast marching knee drives'],
+  'Slow squats': ['Slow squats', 'Sit-to-stand squats', 'Supported squat + knee drive'], 'Fast squats': ['Fast squats', 'Steady squats', 'Sit-to-stand squats'], 'Steady squats': ['Fast squats', 'Steady squats', 'Sit-to-stand squats'], 'Sit-to-stand squats': ['Slow squats', 'Sit-to-stand squats', 'Supported squat + knee drive'], 'Alternating lunges': ['Alternating lunges', 'Supported reverse lunges', 'Sit-to-stand squats'],
+  'Plank shoulder taps': ['Plank shoulder taps', 'Elevated plank shoulder taps', 'Wall press-ups'], 'Elevated plank shoulder taps': ['Plank shoulder taps', 'Elevated plank shoulder taps', 'Wall press-ups'],
+  'Glute bridges': ['Glute bridges'], 'Dead bugs': ['Dead bugs'], 'Bicycle crunches': ['Bicycle crunches', 'Dead bugs'], 'Plank': ['Plank', 'Elevated plank shoulder taps'], 'Side plank': ['Side plank', 'Plank']
+};
 export const EXERCISE_GUIDANCE = {
   'Squat + knee to elbow': { cue: 'Sit back through your heels, stand tall, then bring the knee across with control.', option: 'Keep the knee drive lower if balance is challenging.', icon: '↗' },
   'Press-ups': { cue: 'Hands under shoulders, ribs down, then lower as one strong line.', option: 'Use a bench, sofa or knees for a supported version.', icon: '↓' },
@@ -28,7 +42,16 @@ export const EXERCISE_GUIDANCE = {
   'Slow mountain climbers': { cue: 'Bring each knee in slowly while keeping your hips as still as you can.', option: 'Use a bench or countertop for support.', icon: '↔' },
   'Side plank': { cue: 'Lift from the underside of your waist and keep the chest open.', option: 'Keep the bottom knee on the floor.', icon: '◐' },
   'Fast squats': { cue: 'Move briskly but stay in control: heels down, chest proud.', option: 'Choose a steady pace rather than rushing.', icon: '⇅' },
-  'Alternating lunges': { cue: 'Land quietly and keep your front knee in line with your toes.', option: 'Use reverse lunges or reduce range.', icon: '↙' }
+  'Alternating lunges': { cue: 'Land quietly and keep your front knee in line with your toes.', option: 'Use reverse lunges or reduce range.', icon: '↙' },
+  'Incline press-ups': { cue: 'Use a stable bench, sofa or countertop and keep your body in one strong line.', option: 'Raise the surface higher to make the movement easier.', icon: '↘' },
+  'Wall press-ups': { cue: 'Stand tall, hands on the wall, and press away with your ribs gently down.', option: 'Step closer to the wall to reduce the load.', icon: '→' },
+  'Supported reverse lunges': { cue: 'Use a wall or chair for balance, then step back softly and stay tall.', option: 'Make the step shorter and reduce your depth.', icon: '↙' },
+  'Step-back squat thrusts': { cue: 'Place your hands down, step one foot back at a time, then return to standing.', option: 'Use a raised surface instead of the floor.', icon: '⇵' },
+  'Elevated plank shoulder taps': { cue: 'Use a bench or countertop and tap slowly without twisting your hips.', option: 'Choose a higher surface for more support.', icon: '⊕' },
+  'Steady squats': { cue: 'Move at a comfortable pace with your heels down and chest proud.', option: 'Use a chair as a depth target.', icon: '⇅' },
+  'Sit-to-stand squats': { cue: 'Use a sturdy chair, stand with control, then sit back slowly.', option: 'Use your hands lightly for support if needed.', icon: '↑' },
+  'Supported squat + knee drive': { cue: 'Hold a stable support, sit back gently, then drive one knee up with control.', option: 'Keep the knee lift low and steady.', icon: '↗' },
+  'Fast marching knee drives': { cue: 'March with purpose, drive the knees comfortably and keep your posture tall.', option: 'Slow the pace and keep the knee lift lower.', icon: '⇅' }
 };
 export const ACHIEVEMENTS = [
   { id: 'first-workout', icon: '✓', title: 'First workout', detail: 'Complete your first session.', unlocked: state => state.sessions.length >= 1 },
