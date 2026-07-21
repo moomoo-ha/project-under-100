@@ -12,6 +12,7 @@ This is a static Progressive Web App (PWA) built for GitHub Pages. It has no tra
 - Four genuinely guided 10-minute workouts: HIIT, Strength, Core and Full Body.
 - Automatic 12-week interval progression: **40/20**, **45/15**, then **50/10**.
 - Voice coaching, a real three-second preparation countdown, circular timer, pause/resume, skip and next-exercise preview.
+- Interrupted-session recovery: leaving a workout saves its exact point locally, with a clear option to resume or discard it later.
 - Workout personalisation: an optional low-impact movement plan, on-the-fly exercise swaps, and optional warm-up/cool-down guidance.
 - A guided **Mobility Reset** for recovery days: one gentle 10-minute round with breathing, hip, spine and hamstring mobility, plus supported alternatives.
 - Workout history with recent sessions, weekly count, favourite workout and a one-tap repeat action.

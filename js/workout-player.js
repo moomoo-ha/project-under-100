@@ -1,9 +1,10 @@
 import { EXERCISE_GUIDANCE, WORKOUTS } from '../data/programme.js';
 
 export class WorkoutPlayer {
-  constructor({ onUpdate, onComplete, speak }) {
+  constructor({ onUpdate, onComplete, onStateChange, speak }) {
     this.onUpdate = onUpdate;
     this.onComplete = onComplete;
+    this.onStateChange = onStateChange;
     this.speak = speak;
     this.timerId = null;
     this.state = null;
@@ -16,6 +17,7 @@ export class WorkoutPlayer {
     const exercise = this.state.exercises[0];
     this.speak(`Welcome to Project Under 100. ${name}. ${totalRounds === 1 ? 'One gentle round.' : 'Round one.'} First exercise: ${exercise}. ${EXERCISE_GUIDANCE[exercise]?.cue || 'Move with control.'} Three.`);
     this.render();
+    this.persistState();
     this.timerId = window.setInterval(() => this.tick(), 1000);
   }
 
@@ -28,6 +30,7 @@ export class WorkoutPlayer {
     if (this.state.phase === 'work' && this.state.remaining === 10) this.speak('Ten seconds remaining.');
     if (this.state.remaining <= 0) this.advance();
     this.render();
+    this.persistState();
   }
 
   advance() {
@@ -63,18 +66,51 @@ export class WorkoutPlayer {
     if (!this.state) return;
     this.advance();
     this.render();
+    this.persistState();
   }
 
   replaceCurrentExercise(exercise) {
     if (!this.state || !exercise) return;
     this.state.exercises[this.state.index] = exercise;
     this.render();
+    this.persistState();
   }
 
   togglePause() {
     if (!this.state) return;
     this.state.paused = !this.state.paused;
     this.render();
+    this.persistState();
+  }
+
+  restore(snapshot) {
+    if (!snapshot?.name || !Array.isArray(snapshot.exercises)) return false;
+    this.stop();
+    this.state = { ...snapshot, exercises: [...snapshot.exercises], paused: false };
+    this.render();
+    this.persistState();
+    this.timerId = window.setInterval(() => this.tick(), 1000);
+    return true;
+  }
+
+  suspend() {
+    if (!this.state) return null;
+    if (this.timerId) window.clearInterval(this.timerId);
+    this.timerId = null;
+    this.state.paused = true;
+    const snapshot = this.snapshot();
+    this.persistState();
+    this.state = null;
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    return snapshot;
+  }
+
+  snapshot() {
+    return this.state ? { ...this.state, exercises: [...this.state.exercises] } : null;
+  }
+
+  persistState() {
+    this.onStateChange?.(this.snapshot());
   }
 
   render() {
@@ -95,6 +131,7 @@ export class WorkoutPlayer {
     if (this.timerId) window.clearInterval(this.timerId);
     this.timerId = null;
     this.state = null;
+    this.onStateChange?.(null);
     if ('speechSynthesis' in window) speechSynthesis.cancel();
   }
 }
